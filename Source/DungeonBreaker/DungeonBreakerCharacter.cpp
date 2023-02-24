@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+	// Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "DungeonBreakerCharacter.h"
 #include "Camera/CameraComponent.h"
@@ -75,6 +75,12 @@ void ADungeonBreakerCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	// handle touch devices
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &ADungeonBreakerCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &ADungeonBreakerCharacter::TouchStopped);
+}
+
+void ADungeonBreakerCharacter::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
 }
 
 void ADungeonBreakerCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)

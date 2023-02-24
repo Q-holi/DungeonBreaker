@@ -28,9 +28,10 @@ public:
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Input)
 	float TurnRateGamepad;
+	  
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "CharacterInfo")
-		float healthl;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CharacterInfo")
+	float speedValue;
 
 protected:
 
@@ -64,6 +65,8 @@ protected:
 	// End of APawn interface
 
 public:
+
+	virtual void Tick(float DeltaTime) override;
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
